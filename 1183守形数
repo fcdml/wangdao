@@ -1,0 +1,20 @@
+/*0和1是特殊的守形数*/
+#include<stdio.h>
+#include<math.h>
+	int main()
+	{
+		int n,k=0; 
+		while(scanf("%d",&n)!=EOF)
+		{
+		   while((n*n)/(int)pow(10,k)>=10)
+		   {
+		   k++;
+		   }
+		if((n*n-n)%(int)pow(10,k)==0&&n!=2&&n!=3)
+		printf("YES\n");
+		else
+		printf("NO\n");
+	    }
+		return 0;
+		
+	}
