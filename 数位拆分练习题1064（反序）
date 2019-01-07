@@ -1,4 +1,4 @@
-题目描述： 
+题目描述： //https://blog.csdn.net/fuxuemingzhu/article/details/60476893 
 设N是一个四位数，它的9倍恰好是其反序数（例如：1234的反序数是4321） 
 求N的值 
 输入： 
@@ -9,7 +9,7 @@
 样例输出： 
 来源： 
 2001年清华大学计算机研究生机试真题(第I套)
-#include<stdio.h>
+#include<stdio.h>//只是数字反序
 #include<string.h>
 int main()
 {
@@ -23,3 +23,51 @@ while(scanf("%s",a)!=EOF)
 }
  return 0;
 } 
+
+
+//这个是正解
+#include <stdio.h>
+
+int main() {
+    int n = 1000;
+    while (n < 2000) {
+        int temp = n;
+        int reverse = 0;
+        while (temp > 0) {
+            reverse = 10 * reverse + temp % 10;//这一步需要多看 
+            temp /= 10;
+        }
+        if (n * 9 == reverse) {
+            printf("%d\n", n);
+        }
+        n++;
+    }
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int n = 1000;
+    while (n < 2000) {//2000*9 > 10000
+        int buf[4];
+        int temp = n;
+        int reverse = 0;
+        for (int i = 0; i < 4; i++) {
+            buf[i] = temp % 10;
+            temp /= 10;
+        }
+        for (int i = 0; i < 4; i++) //这一步做逆序处理
+	{
+            reverse = 10 * reverse + buf[i];
+        }
+        if (n * 9 == reverse) {
+            printf("%d\n", n);
+        }
+        n++;
+    }
+    return 0;
+}
+
