@@ -10,7 +10,8 @@
 字符串的翻转问题
 char str[6];
 int square= n*n;
-sprintf(str,"%d",square);//用法参见天勤p23
+sprintf(str,"%d",square);//用法参见天勤p23， 将square字符串输出到字符数组str中 比如1234 printf一下 是1234  但是一般写入数组是从头开始 
+也就是str【0】=1 printf一下 是4321 
 
 
 #include <stdio.h>
