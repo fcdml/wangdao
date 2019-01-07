@@ -7,7 +7,10 @@
 输出具有题目要求的性质的数。如果输出数据不止一组，各组数据之间以回车隔开。
 //https://blog.csdn.net/fuxuemingzhu/article/details/60478279 
 
-
+字符串的翻转问题
+char str[6];
+int square= n*n;
+sprintf(str,"%d",square);//用法参见天勤p23
 
 
 #include <stdio.h>
