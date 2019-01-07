@@ -1,0 +1,25 @@
+题目描述： 
+设N是一个四位数，它的9倍恰好是其反序数（例如：1234的反序数是4321） 
+求N的值 
+输入： 
+程序无任何输入数据 
+输出： 
+输出题目要求的四位数，如果结果有多组，则每组结果之间以回车隔开 
+样例输入： 
+样例输出： 
+来源： 
+2001年清华大学计算机研究生机试真题(第I套)
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+char a[20];
+while(scanf("%s",a)!=EOF)
+{
+	int i,size;
+	size=strlen(a);
+	for(i=size-1;i>=0;i--)
+	printf("%d",a[i]-48);
+}
+ return 0;
+} 
