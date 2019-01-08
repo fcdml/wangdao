@@ -1,1 +1,82 @@
-https://blog.csdn.net/fuxuemingzhu/article/details/60479349
+ 题目
+ 如39 3+9=12>10 不行
+ 55   5+5=10=10  不行
+ 23   2+3=5<10   可以
+ 0则不输出
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ #include <stdio.h>
+#include<string.h>
+int main(){
+	char a[1000];
+
+	while(scanf("%s",a)!=EOF)
+	{
+		if(strcmp(a,"0")==0)//strcmp 例如比较c和d 如果相同就为0 c>d 返回正数 反之负数  从左往右比 每一个位置ASCII的值 每一个都和48比 全部为0 才会执行if 
+		{
+			break;	
+		}
+	
+		int len;
+		len=strlen(a);
+		int i,ans=0;
+		for(i=0;i<len;i++)//字符转换成数字 
+		{
+			ans=ans+a[i]-'0';
+		}
+		while(ans>=10)
+		{
+		  int temp=ans;
+		 ans=0;
+		  while(temp>0)
+		  {
+		  	ans=ans+temp%10;//这两句是数位翻转的精髓，其他手法见下面 
+		  	temp/=10;
+		  }
+		
+        }
+          printf("%d\n",ans);
+	}
+	return 0;
+} 
+//字符串翻转
+int i,len=strlen(str);
+char chrtmp;
+for(i=0;i<len/2;i++)
+{
+	chrtmp=syr[i];
+	str[i]=str[len-i-1];
+	str[len-i-1]=chrtmp; 
+ } 
+ //另种解法 利用sprintf函数*/
+  #include<stdio.h>
+  #include<string.h>
+  int main()
+  {
+  	char str[1000];
+  	while(scanf("%s",str)!=EOF)
+  	{
+  		if(strcmp(str,"0")==0)
+  		break;
+  		int ans=10;//先输入个10 可以执行while 进去再初始化 
+  		 int i;
+  		
+  		while(ans>=10){
+		   ans=0;
+		  
+		    int len=strlen(str);
+		   for(i=0;i<len;i++)
+		  ans=ans+str[i]-48; 
+		   
+		   sprintf(str,"%d",ans); //翻转法 
+		   
+	   }
+	   printf("%d\n",ans);
+}
+  	return 0;
+   }                                                     //https://blog.csdn.net/fuxuemingzhu/article/details/60479349
