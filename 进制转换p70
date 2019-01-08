@@ -8,7 +8,7 @@ int main()
 	{
 		int i,len=strlen(ans);
 		 int temp=0,c=1;
-		for(i=len-1;i>=0;i--)
+		for(i=len-1;i>=0;i--)//Aab b处在低位 但是在字符数组里 他排在高位 所以要从位数大的数
 		{
 			int x; 
 			if(ans[i]>='0'&&ans[i]<='9')
