@@ -16,7 +16,7 @@ int main()
 				x=ans[i]-48;
 		
 			 } 
-			 else if(ans[i]>='a'&&ans[i]<='z')
+			 else if(ans[i]>='a'&&ans[i]<='z')//转成数字 那么 小写大写不一样
 			 {
 			 x=ans[i]-'a'+10;	
 			  } 
@@ -34,10 +34,10 @@ int main()
 		do
 		{
 	 int m=temp%b;
-	str[size++]=(m<10)?m+48:m-10+'A';
+	str[size++]=(m<10)?m+48:m-10+'A';//为什么没有小写字母， 因为打印字符（打印%d 则是ascii码就不一样了）出来是和普通数字是一样，10用a，A所以打印出来都一样
 	temp/=b;
 		}while(temp);
-		for(i=size-1;i>=0;i--)
+		for(i=size-1;i>=0;i--)//接上句话   怎么样进 怎么出
 		{
 		printf("%c",str[i]);	
 		}
