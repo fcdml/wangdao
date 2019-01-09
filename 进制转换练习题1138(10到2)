@@ -22,7 +22,7 @@
 #include<string.h>
 int main()
 {
-	char ans[10000],a[10000];
+	char ans[10000],a[10000];//int ans；直接输入数也行 下面就省去了由字符数组到数字的转换
 	while(scanf("%s",ans)!=EOF)
 	{
 		int len=strlen(ans);
@@ -34,7 +34,7 @@ int main()
 		}
 		do
 		{
-			x=reverse%2;
+			x=reverse%2;/八进制只是把2换成8
 			a[i++]=x+'0';
 			reverse=reverse/2;
 		}while(reverse);
