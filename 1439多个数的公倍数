@@ -1,0 +1,52 @@
+2
+3 5 7 15
+6 4 10296 936 1287 792 1  开头第一位表示其后有几个数
+样例输出：
+105
+10296 
+
+本题求多个数的最小公倍数 可以参见hdu1.1.5看循环模式
+
+
+#include <stdio.h>// 递归 a，b最小公倍数 
+long long gcd(long long a,long long b)/*16位系统：long是4字节，int是2字节 
+32位系统：long是4字节，int是4字节(一字节等于八个字元 ) 4*8=32  2的32方 就是他的范围 
+64位系统：long是8字节，int是4字节    long long 八字节   */
+{
+	/*if(b==0)
+	{
+	return a;
+	}
+	else
+	{
+	return gcd(b,a%b);//开始递归 直到if执行
+	}
+	*/
+	return b==0?a:gcd(b,a%b); 
+
+	
+	
+}
+int main()
+{   
+int a,b,n,m,v;
+while(scanf("%d",&n)!=EOF)
+int c;
+for(c=0;c<=n;c++)
+{
+	scanf("%d",&m);
+	long long t=1;
+	while(m--)
+	{
+		scanf("%d",&v);
+		t=t*v/gcd(t,v);//公倍数与下一个进行再求公倍数   
+	    
+	}
+		printf("%lld\n",t);/*输出格式 %d=int, %ld=long, %lld=long long; */
+	
+	
+}
+	
+	
+	return 0;
+}
