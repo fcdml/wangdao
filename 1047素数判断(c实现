@@ -1,0 +1,61 @@
+/*#include <math.h>
+#include<stdio.h>
+bool judge(int x)//c++里的bool反应 对错 
+{
+	if(x<=1) 
+	return false;
+	int bound=(int)sqrt(x)+1;
+	int i;
+	for(i=2;i< bvbound;i++)
+	{
+		if(x%i==0)
+	    return false;
+			
+	}
+	return true;
+} 
+
+int main()
+{
+	int x;
+	while(scanf("%d",&x)!=EOF)
+	{
+		puts(judge(x)?"yes":"no");
+		
+	}
+	return 0;
+}*/
+//c语言实现
+#include <math.h>
+#include<stdio.h>
+int main()
+{
+	
+	int x,flag=1;
+	while(scanf("%d",&x)!=EOF)
+	{
+			int flag=1;
+		if(x<=1) 
+	     flag=0;
+	     if(x==2) //bound忽略了2
+	     flag=1;
+	int bound=(int)sqrt(x)+1;
+	int i;
+	for(i=2;i<bound;i++)
+	{
+		if(x%i==0)
+        {
+            flag=0;
+            break;
+        }
+			
+	}
+                                        
+	if (flag==1)
+        printf("yes");
+    else
+        printf("no");
+    
+	}
+	return 0;
+}
