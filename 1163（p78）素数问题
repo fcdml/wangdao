@@ -1,3 +1,6 @@
+题目：
+100以内的数 个位数是1的素数
+
 #include<stdio.h> //标记见书
 int prime[10000];
 int primeSize;
