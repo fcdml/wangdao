@@ -4,7 +4,7 @@
 #include<stdio.h> //标记见书
 int prime[10000];
 int primeSize;
-bool mark[10001];
+bool mark[10001];//bool可以改成int 但必须写成c++文件，因为c中没有true 
 void init(){
 	int i;
 	for(i=1;i<=10000;i++)
