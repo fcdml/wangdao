@@ -1,0 +1,66 @@
+//120=2*2*2*3*5
+//input 120
+//outpot 5 
+//题意：幂指数的和 
+#include<stdio.h>//标记见书 
+bool mark[100001]; 
+int  prime[100001];
+int  primesize;
+void init()//把素数统计出来 
+{
+	primesize=0;
+	int i;
+	for(i=2;i<=100000;i++)
+	{
+		if(mark[i]==true)
+		continue;//if成立结束下面的执行 直接到for开始往下执行 
+		prime[primesize++]=i;
+		if(i>=1000)
+		continue;
+		int j;
+		for(j=i*i;j<=100000;j+=i)
+		{
+			mark[j]=true;
+		}
+		
+	}
+}
+int main()
+{
+	init();
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int ansprime[30];
+		int anssize=0;
+		int ansnum[30];
+		for(int i=0;i<primesize;i++)//所有素数走一遍 
+		{
+			if(n%prime[i]==0)//判断可不可以被分解 
+			{
+				ansprime[anssize]=prime[i];
+				ansnum[anssize]=0;
+				while(n%prime[i]==0) // 循环到不能除 
+				{
+					ansnum[anssize]++;//数组里的数++ 
+					n/=prime[i];
+				}
+				 
+				if(n==1) //表示已经分解结束 
+				break;
+			}
+		}
+		if(n!=1)//for循环一次都没执行成功 这个数即为超出目前素数的最大素数 
+        {
+        	ansprime[anssize]=n;//这里也可以反映出 因为 细看anssize++ 
+        	ansnum[anssize++]=1;//即幂指数为1 如2=2*1 2的幂指数为1 1不是素数 
+		}
+		int ans=0;
+		for(int i=0;i<anssize;i++) 
+		{
+			ans+=ansnum[i];//数组里保存的各幂指数 数  相加    120则为 3+1+1 
+		}
+		printf("%d\n",ans);		
+	}
+	return 0;
+}
